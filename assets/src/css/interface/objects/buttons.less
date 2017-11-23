@@ -1,0 +1,99 @@
+//
+// Author:      Matt Hinchliffe <www.maketea.co.uk>
+// Modified:    28/03/2013
+// Description: Unified link or form buttons
+//
+
+.btn {
+	display:inline-block;
+	padding:1em 3em;
+	font-size: 14px;
+	color: @black;
+	background:none;
+	border: 2px solid @color-keyline;
+	font-weight: @weight-semibold;
+	text-align: center;
+	.transition();
+	.border-radius(60px);	
+
+	@media (min-width: @screen-sm-min) {
+		.font-size(16px);
+	}
+
+	input&,
+	button& {
+		border:0;
+		font-family:@type-body; // Ensure form elements get the intended font family
+	}
+
+	a& {
+		text-decoration:none;
+		color: @color-text;
+
+		&:hover {
+			background: @color-brand;
+			color: @color-reverse;
+			border: 2px solid @color-brand;
+		}
+	}
+
+	&:active {
+		box-shadow:inset 0 2px 0 rgba(0, 0, 0, .25);
+	}
+
+	// Colours
+	&.btn--brand {
+		background: @color-brand;
+		color: @color-reverse;
+		border: 0;
+		
+		&:hover {
+			color: @color-reverse;
+			background:darken(@color-brand, 10%);
+			border: 0;
+		}
+	}
+
+	&.btn--outline {
+		background: transparent;
+		border: 2px solid @color-brand !important;
+		color: @black;
+
+		&:hover {
+			background: transparent;
+			border: 2px solid @color-brand !important;
+			color: @black;
+		}
+	}
+}
+
+.btn--large {
+	padding: 1.3em 4.7em;
+}
+
+
+// Button group (when 2+ buttons need to be displayed inline)
+.button-group {
+	margin-left: -.5em;
+	margin-right: -.5em;
+	
+	.btn {
+		display: inline-block;
+		margin: 0 .5em;
+	}
+}
+
+// Wordpress specific styles and tweaks
+.post-edit-link{
+	&:extend(.btn);
+ 	&:extend(.btn.btn--brand);
+	margin-bottom: 0px;
+	position: fixed;
+    top: 140px;
+    right: 20px;
+	z-index: 9999999;
+    position: fixed;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: white !important;
+}

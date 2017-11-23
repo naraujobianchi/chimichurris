@@ -1,0 +1,95 @@
+//
+// Hero slideshow
+//
+
+.slideshow {
+	overflow: hidden;
+	color: @color-dark;
+	box-sizing: border-box;
+	position: relative;
+
+	.slideshow__content {
+		padding: 2em 0;
+		position: absolute;	
+		top: 50%;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		z-index: 101;
+		.translate(0, -50%);
+		box-sizing: border-box;
+		color: @color-dark;
+
+		.headline,
+		.subheadline {
+			background: @color-reverse;
+			padding: 10px 20px;
+			display: inline-block;
+		}
+
+		.headline {
+			font-size: 30px;
+			line-height: 1;		
+			font-weight: bold;
+			margin-bottom: 20px;
+
+			@media (min-width: @screen-md-min){
+				font-size: 42px;
+			}
+
+			@media (min-width: @screen-md-min){
+				font-size: 50px;
+			}
+		}
+
+		.subheadline {
+			font-size: 18px;
+			line-height: 1.2;
+			margin-bottom: 10px;
+			
+			@media (min-width: @screen-md-min){
+				font-size: 20px;	
+			}
+			p {
+				margin-bottom: 10px;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+	}
+
+	.background-carousel {	
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		.transition();
+		height: 660px;
+
+		&.slick-initialized {
+			opacity: 1;
+			visibility: visible;
+			height: auto;
+		}
+
+		li {
+			> div {
+				height: 320px;
+
+				@media only screen and (min-width:@screen-sm-min) {
+					height: 350px;
+				}
+				
+				@media only screen and (min-width:@screen-md-min) {
+					height: 450px;
+				}
+
+				@media only screen and (min-width:@screen-lg-min) {
+					height: 660px;
+				}
+			}
+		}
+	}
+}

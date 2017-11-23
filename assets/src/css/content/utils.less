@@ -1,0 +1,147 @@
+//
+// Description: Useful classes for repetitive jobs
+//
+
+//
+// Hide but keep accessible to screen readers
+//
+.hidden {
+	position:absolute;
+	left:-9999px;
+}
+
+
+//
+// Inline soft reset
+//
+.base {
+	margin:0;
+	padding:0;
+
+	ul&,
+	ol& {
+		list-style:none;
+	}
+	img& {
+		display:block;
+	}
+}
+
+
+//
+// Micro clearfix <http://nicolasgallagher.com/micro-clearfix-hack/>
+//
+.cf {
+	*zoom:1;
+
+	&:before,
+	&:after {
+		display:table;
+		content:"";
+	}
+	&:after {
+		clear:both;
+	}
+}
+
+//
+// Floats
+//
+.right {
+	float: right;
+}
+.left {
+	float: left;
+}
+
+//
+// Text alignment
+//
+.text-left {
+	text-align:left;
+}
+.text-centre,
+.text-center {
+	text-align:center;
+}
+.text-right {
+	text-align:right;
+}
+
+//
+// Spacing classes
+//
+.top-16 {
+	margin-top: 1em;
+}
+.top-24 {
+	margin-top: 1.5em;
+}
+.top-32 {
+	margin-top: 2em;
+}
+.top-48 {
+	margin-top: 3em;
+}
+.below-8 {
+	margin-bottom: .5em;
+}
+.below-16 {
+	margin-bottom: 1em;
+}
+.below-24 {
+	margin-bottom: 1.5em;
+}
+.below-32 {
+	margin-bottom: 2em;
+}
+
+//
+// Padding classes
+//
+.padded-right {
+	@media only screen and (min-width:@screen-md-min) {
+		padding-right: 2em;
+	}
+
+	@media only screen and (min-width:@screen-lg-min) {
+		padding-right: 6em;
+	}
+}
+.padding-equal {
+	@media only screen and (min-width:@screen-md-min) {
+		padding: 0 8%;
+	}
+}
+
+
+//
+// Additional table layout 
+//
+.table {
+	@media (min-width: @screen-sm-min) {
+		display: table;
+		table-layout: fixed;		
+		width: 100%;
+
+		.table__cell {
+			display: table-cell;
+			vertical-align: middle;
+			padding: 10px;
+		}
+	}
+}
+
+//
+// When paragraph needs to be included within heading (WP editor)
+//
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	p {
+		margin-bottom: 0;
+	}
+}

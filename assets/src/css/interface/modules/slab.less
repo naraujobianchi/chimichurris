@@ -1,0 +1,85 @@
+// Slab - spacing structure
+.slab {
+	padding: 1.5em 0 2em;
+	background: @color-reverse;
+	position: relative;
+
+	@media (min-width: @screen-sm-min) {
+		padding: 2em 0 3em;
+	}
+	@media (min-width: @screen-md-min) {
+		padding: 3em 0 4em;
+	}
+
+	.slab__content {
+		max-width: 1000px;
+		width: 100%;
+		margin: 0 auto;
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	h2 {
+		position: absolute;
+		top: -.7em;
+	}
+}
+
+// size variations
+.slab--small {
+	padding: 1em 0 1em;
+
+	@media (min-width: @screen-md-min) {
+		padding: 2em 0 3em;
+	}
+}
+.slab--medium {
+	padding: 2em 0 3em;
+	@media (min-width: @screen-sm-min) {
+		padding: 3em 0 5em;
+	}
+}
+.slab--large {
+	padding: 2em 0 3em;
+	@media (min-width: @screen-sm-min) {
+		padding: 3em 0 4em;
+	}
+	@media (min-width: @screen-md-min) {
+		padding: 5em 0 6em;
+	}
+}
+.slab--base {
+	padding-top: 0;
+	padding-bottom: 3em;
+	@media (min-width: @screen-md-min) {
+		padding-bottom: 5em;
+	}
+}
+
+// colour variations
+.slab--white {
+	background: @color-reverse;
+}
+.slab--brand {
+	background-color: @color-brand;
+}
+.slab--primary {
+	background-color: @color-primary;
+}
+
+//
+// Additional slab styling
+//
+
+// with inline background-image and absolutely positioned content
+.slab--bg-image {
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+
+	&.bg-image--left {
+		background-position: 0 50%;
+	}
+}

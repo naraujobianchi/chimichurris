@@ -1,0 +1,206 @@
+//
+// Description: Styling for default form elements
+//
+
+@input-padding:    .25em;
+@input-background: @color-reverse;
+@input-blurred:    @color-dark;
+@input-focused:    @black;
+@input-disabled:   #DDD;
+
+//
+// Legends - don't bother styling the legend element directly
+//
+legend > span {
+	display:block;
+}
+
+
+//
+// Labels
+//
+label {
+	white-space:nowrap;
+	display: block;
+	color: @color-text;
+	.font-size(24);
+	margin-bottom: .8em;
+
+	// Match .mega in typography.less
+	@media (max-width: @screen-sm-min) {
+		.font-size(20);
+	}
+	@media (max-width: @screen-xs-min) {
+		.font-size(16);
+	}
+
+
+	dfn[title] {
+		border:none;
+		color: @color-text;
+	}
+}
+
+
+//
+// Shared properties
+//
+input,
+select,
+textarea {
+	padding:.8em .5em;
+	border:0;
+	font-weight:normal;
+	font-family:@type-body;
+	font-size:18px;
+	margin-bottom: .25em;
+	display: block;
+	border: 2px solid @color-keyline;
+	width: 100%;
+	-webkit-appearance: none;
+    -webkit-border-radius: 0;
+
+	&[disabled] {
+		border-color:darken(@input-disabled, 20%) !important;
+		color:darken(@input-disabled, 20%) !important;
+		background:@input-disabled !important;
+		cursor:not-allowed !important;
+	}
+}
+
+//
+// Text inputs and select boxes
+//
+input,
+select,
+textarea {
+    margin-top: 10px;
+	color:@input-blurred;
+	background:transparent;
+
+	&:focus {
+		color:@input-focused;
+		outline: 1px dotted @color-brand;
+	}
+}
+
+input {
+	// Go native else build a new input with a little JS <http://bit.ly/qM8FYC>
+	&[type=file],
+	&[type=radio],
+	&[type=checkbox] {
+		padding:0;
+		border:none;
+		background:none;
+		width: auto;
+	}
+
+	&[type=submit] {
+		.btn;
+		.btn--brand;
+		.btn--large;
+		width: auto;
+		margin: 0 auto;
+
+		@media (min-width: @screen-xs-min) {
+			margin: 0;
+		}
+	} 
+}
+
+// Select boxes obey a border-box layout (mostly)
+select {
+	height:29px; // Set a height to match text inputs (roughly font size * 'normal' + border width E.G. 16 * 1.222 + 2)
+	padding:2px;
+
+	&[size],
+	&[multiple] {
+		height:auto;
+	}
+}
+
+textarea {
+	height:11em;
+
+	&[rows] {
+		height:auto;
+	}
+}
+
+// Contact form 7
+span[role=alert] {
+	color: @color-attention;
+	font-weight: normal;
+	font-size: 16px;
+}
+.wpcf7-validation-errors, .wpcf7-mail-sent-ng {
+	border: 1px solid @color-attention;
+	color: @color-attention;
+	padding: 1em;
+}
+div.wpcf7-validation-errors {
+	margin: 0 0 1em;
+	border: 1px solid @color-attention;
+}
+.control span.wpcf7-list-item {
+	position: relative;
+	margin: 0;
+}
+
+
+// Custom checkboxes
+.control {
+	.font-size(16);
+	position: relative;
+	display: block;
+	margin-bottom: 2em;
+	padding-left: 28px;
+	cursor: pointer;
+	white-space: inherit;
+	color: @black;
+}
+.control input {
+	position: absolute;
+	left: -28px;
+	top: 50%;
+	.translate(0, -50%);
+	width: 20px !important;
+	height: 20px !important;
+	margin: 0;
+	padding: 0;
+}
+.control input:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background: @color-reverse;
+	border: 2px solid @color-keyline;
+	z-index: 10;
+}
+
+/* Check mark */
+.control input:before {
+	position: absolute;
+	display: none;
+	content: '';
+}
+
+/* Show check mark */
+.control input:checked:before {
+	display: block;
+}
+
+/* Checkbox tick */
+.control input:checked:before{
+	top: 4px;
+	left: 8px;
+	width: 5px;
+	height: 10px;
+	.rotate(45deg);
+	border: solid @color-keyline;
+	border-width: 0 2px 2px 0;
+	z-index: 20;
+}

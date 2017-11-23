@@ -1,0 +1,35 @@
+//
+// Social icons
+// Zen-coding: a.social(&.social--brand)>span[class*=" icon-"]
+//
+
+a.social {
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 100%;
+	width: 40px;
+	height: 40px;
+	line-height: 50px;
+	text-align: center;
+	.transition();
+	margin: 0 2px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	[class^="icon-"], [class*=" icon-"] {
+		color: @color-text;
+		font-size: 24px;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+		background: @color-text;
+
+		[class^="icon-"], [class*=" icon-"] {
+			color: @color-reverse;
+		}
+	}
+}

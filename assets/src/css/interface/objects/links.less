@@ -1,0 +1,87 @@
+//
+// Author:      Matt Hinchliffe <www.maketea.co.uk>
+// Modified:    27/03/2013
+// Description: Modifier classes for anchor elements
+//
+
+// Unstyled link
+.link--unstyled {
+	&, &:hover, &:visited {
+		color:@black;
+		text-decoration:none;
+	}
+}
+
+a.link--reverse,
+.links--reverse a {
+	color: @color-reverse;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+		color: @color-reverse;
+	}
+	&:visited {
+		color: @color-reverse;
+	}
+}
+
+a.link--brand,
+.links--brand a {
+	color: @color-dark;
+	text-decoration: none;
+	border-bottom: 1px solid @color-brand;
+	&:hover {
+		text-decoration: none;
+		color: @color-dark;
+		border-bottom: 1px solid darken(@color-brand, 10%);
+	}
+}
+
+a.link--underline,
+.links--underline a {
+	color: @color-text;
+	border-bottom: 1px solid;
+
+	&:hover {
+		text-decoration: none;
+		color: @color-brand;
+	}
+}
+
+// Link with the arrow to the left
+.link--arrow-down {
+	&:before {
+		font-family: 'icons';
+		content: '\e007';
+		position: relative;
+		display: inline-block;
+		color: @color-reverse;
+		font-size: 36px;
+	}
+}
+
+// Link with the arrow to the left
+.link--arrow-left {
+	&:before {
+		font-family: 'icons';
+		content: '\f104';
+		padding-right: .25em;
+		position: relative;
+		top: 2px;
+		display: inline-block;
+		color: @color-brand;
+	}
+}
+
+// Link with the arrow to the right
+.link--arrow-right {
+	&:after {
+		font-family: 'icons';
+		content: '\f105';
+		padding-left: .25em;
+		position: relative;
+		top: 2px;
+		display: inline-block;
+		color: @color-brand;
+	}
+}

@@ -1,0 +1,348 @@
+//
+// Site header and navigation
+//
+@logo-width-lg: 280px;
+
+#site-inner-wrapper {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+header {
+	background: @color-reverse;
+	position: relative;
+}
+#site-header {
+	padding: .5em 1em .8em;
+	box-sizing: border-box;	
+	position: relative;
+	max-width: 1200px; // to match .container
+	margin: 0 auto;
+
+	@media (min-width: @screen-md-min){
+		padding: 3.3em 1em 1em;
+	}
+
+	.logo {
+		display: inline-block;
+		margin: 0;
+		width: 160px;
+		height: auto;
+		.link--unstyled;
+
+		@media (min-width: @screen-xs-min){
+			display: block;
+			margin: 0 auto;
+			width: 200px;
+		}
+		@media (min-width: @screen-md-min) {
+			width: @logo-width-lg;
+			position: absolute;
+			top: 1.5em;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+		@media (min-width: @screen-lg-min){
+			width: @logo-width-lg;
+		}
+	}	
+}
+
+
+// Setup document to handle it
+#site-inner-wrapper {
+	position:relative;
+	overflow: hidden;
+	left:0;
+	width:100%;
+
+	// IE9 supports does not support 3D transforms but has prefixed 2D transforms
+	-ms-transform:translate(0, 0);
+
+	// prefixed transition will be overwritten in IE10 with unprefixed, 3D transform
+	.translate(0, 0, 0);
+
+	.nav-open & {
+		-ms-transform:translate(-60%, 0);
+		.translate(-60%, 0, 0);
+		.transition;
+		overflow: inherit;
+		border-right: 2px solid @color-reverse;
+
+		@media (min-width: @screen-md-min) {
+			-ms-transform:translate(0, 0);
+			.translate(0, 0, 0);
+		}
+	}
+}
+
+body.nav-open {
+	background: @color-brand;
+}
+	
+#site-navigation {
+	position: absolute;
+	top: 0;
+	right: -60%;
+	margin: 0;
+	width: 60%;
+	//border:2px solid @site-nav-background;
+
+	@media (min-width: @screen-md-min) {
+		position: relative;
+		top:auto;
+		right:auto;
+		border: none;
+		padding-top: 1em;
+		width: 100%;
+		text-align: center;
+	}
+
+	nav > ul { // as per WP nav styling
+		width: 100%;
+		margin: 0;
+		padding: 0;
+
+		> li {
+			display: block;
+			border-bottom: 2px solid @color-reverse;
+
+			&:last-child {
+				border-bottom: 0;
+			}
+
+			@media (min-width: @screen-md-min) {
+				display: inline-block;
+				border-bottom: 0;
+
+				// to fit logo, based on 4 elem menu
+				&:nth-child(2) {
+					margin-right: @logo-width-lg/2+30;
+				}
+				&:nth-child(3) {
+					margin-left: @logo-width-lg/2+45; // right side of nav is wider
+				}
+			}
+
+			> a {
+				border: 2px solid transparent;
+				border-bottom: 0;
+				text-align: left;
+				padding: 1.45em .75em;				
+				text-decoration: none;
+				.font-size(14);
+				display: block;					
+				color: @color-dark;
+				text-transform: uppercase;
+				
+				&:hover {
+					color: @color-dark;
+					text-decoration: none;
+					background: @color-reverse;
+				}
+
+				&:focus {
+					outline: none;
+				}
+
+				@media (min-width: @screen-md-min) {
+					padding: .75em .65em;
+					text-align: center;
+					&:hover {
+						text-decoration: underline;
+						background: transparent;
+					}
+				}
+
+				@media (min-width: @screen-lg-min) {
+					font-size: 16px;
+					padding: .85em;
+				}
+			}
+		}
+	}
+	.container {
+		padding: 0;
+	}
+
+	// Dropdown (as per WP markup)
+	/*.dropdown {
+		position: relative;
+		z-index: 300;
+
+		> a {
+			border: 2px solid transparent;
+			border-bottom: 0;
+			.transition(all, .0s, linear);
+
+			&.active {
+				color: @color-brand;
+				.transition(all, .1s, linear);		
+
+				@media (min-width: @screen-md-min) {
+					border: 2px solid @color-gray;
+					border-bottom: 0;
+					background: @color-reverse;
+				}
+			}
+		}
+
+		.sub-menu {
+			text-align: left;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			font-size: 14px;
+			display: none;
+
+			&.is-open {
+				display: block;
+			}
+
+			@media (min-width: @screen-md-min) {
+				position: absolute;
+				top: 39px;
+				left: 0;
+				padding: .5em 0 1em;
+				background: @color-reverse;
+				border: 2px solid @color-gray;
+				min-width: 260px;
+				z-index: -1;
+				display: block;
+				visibility: hidden;
+				opacity: 0;
+				.translate(0, -7px);
+				.transition(all, 0s, linear);
+
+				&.is-open {
+					visibility: visible;
+					opacity: 1;
+					.translate(0, 0);
+					.transition(all, .2s, linear);
+				}
+			}
+
+			@media (min-width: @screen-lg-min) {
+				top: 48px;
+				min-width: 300px;
+				font-size: 16px;	
+			}
+
+			>li {
+				background: @color-reverse;
+				margin-top: 2px;
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				a {
+					padding: 1em .75em;
+					display: block;
+					color: @site-nav-color-text;
+
+					@media (min-width: @screen-md-min) {
+						padding: .3em .75em;
+					}
+
+					@media (min-width: @screen-md-min) {
+						padding: .2em .75em;
+					}
+
+					&:hover {
+						color: @color-brand;
+					}
+				}
+			}
+		}
+	}*/
+}
+
+
+#navigation-toggle {
+	display: block;
+
+	@media (min-width: @screen-md-min) {
+		display: none;
+	}
+}
+#navigation-toggle {
+	width: 40px;
+	height: 30px;
+	position: absolute;
+	top: 50%;
+	.translate(0, -50%);
+	right: 20px;
+	cursor: pointer;
+	outline: none;
+
+	span {
+		display: block;
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		background: @color-dark;
+		opacity: 1;
+		left: 0;
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-webkit-transition: .4s ease-in-out;
+		-moz-transition: .4s ease-in-out;
+		-o-transition: .4s ease-in-out;
+		transition: .4s ease-in-out;
+
+		&:nth-child(1) {
+			top: 0;
+			-webkit-transform-origin: left center;
+			-moz-transform-origin: left center;
+			-o-transform-origin: left center;
+			transform-origin: left center;
+		}
+
+		&:nth-child(2) {
+			top: 11px;
+			-webkit-transform-origin: left center;
+			-moz-transform-origin: left center;
+			-o-transform-origin: left center;
+			transform-origin: left center;
+		}
+
+		&:nth-child(3) {
+			top: 22px;
+			-webkit-transform-origin: left center;
+			-moz-transform-origin: left center;
+			-o-transform-origin: left center;
+			transform-origin: left center;
+		}
+	}
+
+	.nav-open & {
+		span:nth-child(1) {
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-o-transform: rotate(45deg);
+			transform: rotate(45deg);
+			top: 0;
+			left: 6px;
+		}
+
+		span:nth-child(2) {
+			width: 0%;
+			opacity: 0;
+		}
+
+		span:nth-child(3) {
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-o-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			top: 28px;
+			left: 6px;
+		}
+
+	}
+}

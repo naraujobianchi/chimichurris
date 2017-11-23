@@ -1,0 +1,225 @@
+//
+// Description: Base typography and classes for adjusting text content.
+//
+
+// Baseline
+@type-size:      16;  // px
+@type-baseline:  1.5; // no unit
+@type-blankline: 1em; // any unit
+
+// Font stacks
+@type-regular: 'Montserrat', sans-serif;
+
+@weight-extralight: 200;
+@weight-light: 300;
+@weight-regular: 400;
+@weight-semibold: 600;
+
+@type-body: @type-regular;
+@type-mono: Consolas, "Lucida Console", Monaco, monospace;
+@type-small: Arial, Tahoma, sans-serif;
+
+//
+// Document
+//
+body {
+	.font-size(@type-size, 16);
+	line-height: @type-baseline;
+	font-family: @type-body;
+	font-weight: @weight-regular;
+	color: @color-text;
+	-webkit-font-smoothing: antialiased;
+}
+
+#site-content {
+	background: @color-reverse;
+}
+
+//
+// Primary text elements
+//
+p, ul, ol, dd {
+	margin:0 0 @type-blankline;
+}
+ul, ol, dl {
+	padding:0 0 0 1.75em;
+}
+
+
+//
+// Headings
+// - OOCSS style headings allow markup to define document structure when the design does not.
+//
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	font-family:@type-regular;
+	font-weight: normal;
+	letter-spacing: -0.01em;
+}
+
+h1, .h1 {
+	margin:0 0 .25em;
+	.font-size(36);
+	.line-height(64, 48);
+
+	@media (min-width: @screen-md-min) {
+		.font-size(48);
+	}
+}
+h2, .h2 {
+	margin:0 0 .5em;
+	.font-size(30);
+	.line-height(54, 46);
+	font-weight: @weight-semibold;
+	text-transform: lowercase;
+
+	@media (min-width: @screen-md-min) {
+		.font-size(46);
+	}
+}
+h3, .h3 {
+	margin:0 0 .666em;
+	.font-size(18);
+	.line-height(24, 20);
+	letter-spacing:0;
+
+	@media (min-width: @screen-md-min) {
+		.font-size(24);
+	}
+}
+h4, .h4 {
+	margin:0 0 .8em;
+	.font-size(18);
+	.line-height(28, 20);
+	letter-spacing:0;
+
+	@media (min-width: @screen-md-min) {
+		.font-size(20);
+	}
+}
+h5, .h5 {
+	margin:0 0 .8em;
+	.font-size(16);
+	.line-height(22, 18);
+	letter-spacing:0;
+
+	@media (min-width: @screen-md-min) {
+		.font-size(18);
+	}
+}
+h6, .h6 {
+	margin:0 0 .5em;
+	font-size:1em;
+	line-height:@type-baseline;
+	letter-spacing:0;
+}
+
+//
+// Font size variations <http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/>
+//
+.nano {
+	font-size: 10px;
+	font-family:@type-small;
+}
+.milli {
+	font-size: 12px;
+}
+.centi {
+	font-size: 14px;
+}
+.deca {
+	font-size: 16px;
+}
+.kilo {
+	.font-size(16);
+	.line-height(24, 18);
+
+	@media (min-width: @screen-md-min) {
+		.font-size(18);
+	}
+}
+.mega {
+	.font-size(18);
+	.line-height(32, 24);
+
+	@media (min-width: @screen-md-min) {
+		.font-size(24);
+	}
+}
+.giga {
+	.font-size(22);
+	.line-height(42, 30);
+
+	@media (min-width: @screen-md-min) {
+		.font-size(30);
+	}
+}
+.tera {
+	.font-size(28);
+	.line-height(48, 40);
+
+	@media (min-width: @screen-md-min) {
+		.font-size(36);
+	}
+}
+.peta {
+	.font-size(36);
+	.line-height(56, 48);
+
+	@media (min-width: @screen-md-min) {
+		.font-size(48);
+	}
+}
+
+//
+// Text colours
+//
+.brand {
+	color: @color-brand;
+}
+.black {
+	color: @black;
+}
+.dark {
+	color: @color-dark;
+}
+.lowlight {
+	color:@color-lowlight;
+}
+.reverse {
+	color: @color-reverse;
+}
+.keyline {
+	color: @color-keyline;
+}
+
+//
+// Font weight
+//
+strong, 
+.bold {
+	font-weight: @weight-semibold;
+}
+.regular {
+	font-weight: @weight-regular;
+}
+.light {
+	font-weight: @weight-light;
+}
+.extralight {
+	font-weight: @weight-extralight;
+}
+
+//
+// Text transforms
+//
+.capitalise {
+	text-transform: uppercase;
+}
+.lwc {
+	text-transform: none;
+}

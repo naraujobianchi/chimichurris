@@ -1,0 +1,153 @@
+//
+// Description: Useful classes for formatting lists
+//
+
+//
+// Comma separated list
+// Zen-coding: ul.list--tag>li*3
+//
+.list--tag {
+	padding-left:0;
+	text-transform:capitalize;
+
+	> li {
+		display:inline;
+
+		&:after {
+			content:',\0000a0'; // Non-breaking space
+		}
+		&:last-child:after {
+			content:normal;
+		}
+	}
+}
+
+
+//
+// Pipe separated list
+// Zen-coding: ul.list--separated>li*3
+//
+.list--separated {
+	padding-left:0;
+
+	> li {
+		display:inline;
+
+		&:before {
+			content:'\0000a0\0000a0|\0000a0\0000a0'; // Non-breaking space
+		}
+		&:first-child:before {
+			content:normal;
+		}
+	}
+}
+
+//
+// List with styled bullets of the brand colour
+//
+.list--styled {
+	list-style: none;
+	font-weight: normal;
+	
+	li {
+		padding: .15em;
+
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			border-radius: 100%;
+			background: @color-brand;
+			position: relative;
+			top: -3px;
+			margin-left: -20px;
+			margin-right: 10px;
+		}
+	}
+}
+
+.list--menu {
+	list-style: none;
+	padding: 0;
+
+	li {
+		padding: .2em 0 .4em;
+
+		h5 {
+			position: relative;
+			padding-right: 2em;
+
+			> span {
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+		}
+	}
+}
+
+
+//
+// Inline definition list
+// Zen-coding: dl.definition--inline>(dt+dd)*3
+//
+.definition--inline {
+	overflow:hidden;
+	margin-bottom:@type-blankline;
+
+	dt,
+	dd {
+		margin:0;
+	}
+	dt {
+		float:left;
+		clear:left;
+		padding-right:5px;
+
+		&:after {
+			content:':'
+		}
+	}
+}
+
+
+//
+// Numbered definition lists
+// Zen-coding: dl.definition--numbered>(dt+dd)*3
+//
+.definition--numbered {
+	counter-reset:numbered;
+
+	dt:before {
+		counter-increment:numbered;
+		content:counter(numbered) '. ';
+	}
+}
+
+//
+// Styled definition list
+// Zen-coding: dl.definition--styled>(dt+dd)*3
+//
+.definition--styled {
+	overflow:hidden;
+	margin-bottom:@type-blankline;
+	padding: 0;
+	
+	dt,
+	dd {
+		margin:0;
+		width: 50%;
+		padding: .8em;
+		background: @color-reverse;
+		margin-bottom: .3em;
+		box-sizing: border-box;
+		float:left;
+	}
+	dt {
+		clear:left;
+	}
+	dd {
+		text-align: right;
+	}
+}

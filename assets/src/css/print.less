@@ -1,0 +1,137 @@
+@text-color: #222;
+
+//
+// ScrollReveal elemts to be shown on print
+//
+.sr-scale,
+.sr-move-up,
+.sr-move-up-delayed,
+.sr-show,
+.sr-scale-carousel,
+.sr-move-up-delayed-carousel {
+	visibility: visible !important;
+	opacity: 1 !important;
+	display: block !important;
+	transform: translateY(0) scale(1) !important;
+}
+
+.slideshow .background-carousel {
+	li {
+		>div {
+			height: 100px;
+		}
+	}
+
+	.slideshow__content {
+		color: @text-color;
+	}
+}
+.slick-slider .slick-track ,
+.slick-initialized .slick-slide {
+	width: 100% !important;
+}
+.slick-list {
+	padding: 0 !important;
+}
+
+// grid
+.container {
+	width: 100%;
+}
+.col-sm-4 {
+	width: 33.33%;
+	float: left;
+}
+
+.slab {
+	padding: 1em 0;
+}
+.slab--brand {
+	color: @text-color;
+	h2 {
+		color: @text-color;
+	}
+}
+
+.post-edit-link {
+	display: none;
+}
+
+.accordion .accordion__content {
+	display: block !important;
+}
+
+.toggle {
+	p {
+		display: block !important;
+	}
+
+	.toggle__readmore {
+		display: none;
+	}
+}
+
+#site-navigation,
+#site-footer {
+	display: none;
+}
+
+.person-flipcard {
+	-webkit-perspective: 100px;
+    -moz-perspective: 100px;
+    -ms-perspective: 100px;
+    perspective: 100px;
+
+	.flip {
+		display: none !important;
+	}
+
+	.person-flipcard__card {
+		padding: 1em !important;
+		-webkit-transform: rotateY(0deg);
+	    -moz-transform: rotateY(0deg);
+	    -ms-transform: rotateY(0deg);
+	    transform: rotateY(0deg);
+		-webkit-backface-visibility: visible;
+		backface-visibility: visible;
+		position: relative;
+		text-align: left;
+		height: 150px;
+
+		.avatar {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			img {
+				max-width: 45%;
+				margin: 0;
+			}
+		}
+		.name,
+		.role,
+		.achievements {
+			margin-left: 25%;
+			height: auto;
+
+			span {
+				position: relative;
+			}
+		}
+	}
+
+	.person-flipcard__info {
+		padding: 1em !important;
+		position: relative;
+		-webkit-transform: rotateY(0deg);
+	    -moz-transform: rotateY(0deg);
+	    -ms-transform: rotateY(0deg);
+	    transform: rotateY(0deg);
+		-webkit-backface-visibility: visible;
+		backface-visibility: visible;
+	}
+}
+
+.theme-bottom-content-actions {
+	display: none;
+}

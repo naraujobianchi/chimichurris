@@ -1,0 +1,60 @@
+//
+// Description: Layouts for consistent forms
+//
+
+//
+// Set of form fields
+// Zen-coding: form>fieldset>.formset>(.formset__row>label.formset__label+input)*3
+//
+.formset {
+	padding:0 10px;
+	border:1px solid @color-dark;
+	border-radius:5px;
+}
+	.formset__row {
+		position:relative;
+		padding:.5em 0 .5em 25%;
+		line-height:normal;
+		border-top:1px solid @color-dark;
+
+		&:first-child {
+			border:none;
+		}
+		.sign { // forms/hints.less
+			float:right;
+		}
+	}
+		.formset__label {
+			position:absolute;
+			left:0;
+			width:20%;
+			margin:1px 0; // match input border width
+			padding:@input-padding 0; // match input padding
+			text-align:right;
+		}
+
+
+//
+// Set of checkbox/radio buttons
+// Zen-coding: ul.optionset>(li>label>input[type=checkbox])*3
+// Zen-coding: ul.optionset.optionset--horizontal>(li>label>input[type=checkbox])*3
+//
+.optionset {
+	margin:0;
+	padding-left:0;
+	list-style:none;
+
+	> li {
+		padding:@input-padding 0;
+	}
+}
+
+.optionset--horizontal {
+	> li {
+		padding-right:.5em;
+
+		&, > label {
+			display:inline;
+		}
+	}
+}

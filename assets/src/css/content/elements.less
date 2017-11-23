@@ -1,0 +1,185 @@
+//
+// Description: Styling for default elements
+//
+
+//
+// Quotations and citations
+// Zen-Coding: blockquote>p+footer>cite>a
+blockquote, q, cite {
+	font-style:italic;
+}
+blockquote {
+	width:70%;
+	padding:.5em 1.5em;
+
+	p {
+		margin-bottom:.5em;
+		font-style: normal;
+
+		&:first-of-type {
+			text-indent:-.5em;
+
+			&:before {
+				content:open-quote;
+			}
+		}
+		&:last-of-type {
+			&:after {
+				content:close-quote;
+			}
+		}
+	}
+	footer:before {
+		content:"\2014"; // em dash &mdash;
+	}
+
+	&.blockquote--large {
+		width: 100%;
+		margin: 0;
+		margin-bottom: 2em;
+		padding: 0;
+		font-weight: @weight-light;
+
+		p {
+			// padding: 0 10%;
+			width: 77%;
+			margin: auto;
+			.font-size(22);
+			&:first-of-type {
+				text-align: center;
+				font-style: normal;
+				position: relative;
+
+			&:before {
+				display: block;
+				font-size: 1.5em;
+				content: "\e905";
+				font-family: 'icons';
+				text-align: left;
+				position: absolute;
+				top: -1em;
+				left: -1em;
+				color: darken(@color-background, 5%);
+
+			}
+			}
+			&:last-of-type {
+				&:after {
+					display: block;
+					font-size: 1.5em;
+					content: "\e904";
+					font-family: 'icons';
+					text-align: right;
+					position: absolute;
+					right: -1em;
+					bottom: -1em;
+					color: darken(@color-background, 5%);
+				}
+			}
+		}
+
+		cite {
+			text-align: center;
+			font-style: normal;
+			display: block;
+			padding: 0 10%;
+			margin-top: 2em;
+		}
+	}
+}
+
+
+//
+// Monospace
+//
+pre, code, kbd, var {
+	font-family:@type-mono;
+}
+pre {
+	overflow:auto;
+}
+code, kbd, var {
+	line-height:1;
+}
+
+
+//
+// Tooltips
+//
+abbr[title], acronym[title], dfn[title] {
+	border-bottom:1px dotted;
+	cursor:help;
+}
+
+
+//
+// Links
+//
+a {
+	text-decoration:none;
+	color:@color-dark;
+
+	&:visited {
+		color:desaturate(@color-dark, 20%);
+	}
+	&:hover {
+		color:darken(@color-dark, 20%);
+		text-decoration: underline;
+	}
+	&:active, &:focus {
+		outline-offset:1px;
+	}
+	&:focus {
+		outline: 1px dotted @color-dark;
+	}
+}
+
+
+//
+// Horizontal rules
+//
+hr {
+	height:1px;
+	padding:0;
+	margin:0 0 @type-blankline;
+	border:0;
+	background:@color-dark;
+}
+
+strong{
+	font-family: @type-regular !important;
+}
+//
+// Tables
+//
+table {
+	margin:0 auto @type-blankline;
+	border-collapse:collapse;
+	border:1px solid @color-dark;
+}
+	th {
+		font-weight:normal;
+		text-align:left;
+		background:lighten(@color-dark, 5%);
+	}
+	th, td {
+		padding:.25em .5em;
+		border-right:1px solid @color-dark;
+		border-bottom:1px solid @color-dark;
+	}
+
+//
+//Iframes
+
+iframe {
+	display: block;
+}
+
+address {
+	font-style: normal;
+
+	span {
+		display: block;
+		line-height: 1.5;
+	}
+}
