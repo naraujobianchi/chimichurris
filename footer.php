@@ -19,7 +19,7 @@
 											
 											<strong>address</strong>
 											<p>
-												<a href="#">
+												<a href="https://www.google.co.uk/maps/dir/''/chimichurris+southwark/data=!4m5!4m4!1m0!1m2!1m1!1s0x487604a697e57273:0x41bd9fb48e8963c?sa=X&ved=0ahUKEwi185H22cbYAhVKJMAKHVTUBjUQ9RcIhQEwCw">
 													<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 														<span itemprop="addressLocality"><?php echo $theme_options['company_details_address_line_1'];?> </span>
 														<span><?php echo $theme_options['company_details_address_line_2'];?> </span>
